@@ -15,4 +15,4 @@ func _input(event):
 		var size = get_viewport_rect().size
 		var dir = g.identify_direction(pos, size)
 		if dir != null:
-			archer.run(dir)
+			archer.move_to(get_global_mouse_pos(), dir)
