@@ -7,48 +7,56 @@ onready var g = get_node("/root/global")
 onready var anim = get_node("sprite/anim")
 
 var action = Action.new()
-var destination
 
 func _ready():
+	set_process_input(true)
 	set_fixed_process(true)
+
+func _input(event):
+	pass
 
 func _fixed_process(delta):
 	var motion = Vector2()
 	
-	if destination != null:
-		if action.get_direction() == g.MOVE_NORTH:
-			motion += Vector2(0, -1)
-		elif action.get_direction() == g.MOVE_SOUTH:
-			motion += Vector2(0, 1)
-		elif action.get_direction() == g.MOVE_WEST:
-			motion += Vector2(-2, 0)
-		elif action.get_direction() == g.MOVE_EAST:
-			motion += Vector2(2, 0)
-		elif action.get_direction() == g.MOVE_NORTHEAST:
-			motion += Vector2(2, -1)
-		elif action.get_direction() == g.MOVE_NORTHWEST:
-			motion += Vector2(-2, -1)
-		elif action.get_direction() == g.MOVE_SOUTHEAST:
-			motion += Vector2(2, 1)
-		elif action.get_direction() == g.MOVE_SOUTHWEST:
-			motion += Vector2(-2, 1)
-	
+	var direction
 	if Input.is_action_pressed("move_north"):
-		motion += Vector2(0, -1)
+		direction = g.MOVE_NORTH
 	if Input.is_action_pressed("move_south"):
-		motion += Vector2(0, 1)
+		direction = g.MOVE_SOUTH
 	if Input.is_action_pressed("move_west"):
-		motion += Vector2(-2, 0)
+		direction = g.MOVE_WEST
 	if Input.is_action_pressed("move_east"):
+		direction = g.MOVE_EAST
+	if Input.is_action_pressed("move_north") and Input.is_action_pressed("move_east"):
+		direction = g.MOVE_NORTHEAST
+	if Input.is_action_pressed("move_north") and Input.is_action_pressed("move_west"):
+		direction = g.MOVE_NORTHWEST
+	if Input.is_action_pressed("move_south") and Input.is_action_pressed("move_east"):
+		direction = g.MOVE_SOUTHEAST
+	if Input.is_action_pressed("move_south") and Input.is_action_pressed("move_west"):
+		direction = g.MOVE_SOUTHWEST
+	
+	if direction == g.MOVE_NORTH:
+		motion += Vector2(0, -1)
+	elif direction == g.MOVE_SOUTH:
+		motion += Vector2(0, 1)
+	elif direction == g.MOVE_WEST:
+		motion += Vector2(-2, 0)
+	elif direction == g.MOVE_EAST:
 		motion += Vector2(2, 0)
-	if Input.is_action_pressed("move_northeast"):
+	elif direction == g.MOVE_NORTHEAST:
 		motion += Vector2(2, -1)
-	if Input.is_action_pressed("move_northwest"):
+	elif direction == g.MOVE_NORTHWEST:
 		motion += Vector2(-2, -1)
-	if Input.is_action_pressed("move_southeast"):
+	elif direction == g.MOVE_SOUTHEAST:
 		motion += Vector2(2, 1)
-	if Input.is_action_pressed("move_southwest"):
+	elif direction == g.MOVE_SOUTHWEST:
 		motion += Vector2(-2, 1)
+	
+	if motion.x == 0 and motion.y == 0 or direction == null:
+		idle(action.get_direction())
+	else:
+		run(direction)
 	
 	motion = motion.normalized() * MOTION_SPEED * delta
 	motion = move(motion)
@@ -59,8 +67,6 @@ func _fixed_process(delta):
 		motion = get_collision_normal().slide(motion)
 		motion = move(motion)
 		slide_attempts -= 1
-	
-	print(get_pos())
 
 func set_current_action(name, direction):
 	action.set_name(name)
@@ -85,11 +91,6 @@ func idle(direction):
 func stop():
 	if anim.is_playing():
 		anim.stop(false)
-
-func move_to(dest, direction):
-	print(dest)
-	run(direction)
-	destination = Vector2(dest.x, dest.y)
 
 
 class Action extends Reference:
