@@ -7,13 +7,11 @@ onready var g = get_node("/root/global")
 onready var anim = get_node("sprite/anim")
 
 var action = Action.new()
+var release_time = {}
+var forced_direction
 
 func _ready():
-	set_process_input(true)
 	set_fixed_process(true)
-
-func _input(event):
-	pass
 
 func _fixed_process(delta):
 	var motion = Vector2()
@@ -27,13 +25,13 @@ func _fixed_process(delta):
 		direction = g.MOVE_WEST
 	if Input.is_action_pressed("move_east"):
 		direction = g.MOVE_EAST
-	if Input.is_action_pressed("move_north") and Input.is_action_pressed("move_east"):
+	if Input.is_action_pressed("move_northeast"):
 		direction = g.MOVE_NORTHEAST
-	if Input.is_action_pressed("move_north") and Input.is_action_pressed("move_west"):
+	if Input.is_action_pressed("move_northwest"):
 		direction = g.MOVE_NORTHWEST
-	if Input.is_action_pressed("move_south") and Input.is_action_pressed("move_east"):
+	if Input.is_action_pressed("move_southeast"):
 		direction = g.MOVE_SOUTHEAST
-	if Input.is_action_pressed("move_south") and Input.is_action_pressed("move_west"):
+	if Input.is_action_pressed("move_southwest"):
 		direction = g.MOVE_SOUTHWEST
 	
 	if direction == g.MOVE_NORTH:
