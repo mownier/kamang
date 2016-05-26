@@ -6,50 +6,16 @@ const MOTION_SPEED = 250
 onready var g = get_node("/root/global")
 onready var anim = get_node("sprite/anim")
 
+var Action = preload("res://source/common/action.gd")
+
 var action = Action.new()
-var release_time = {}
-var forced_direction
 
 func _ready():
 	set_fixed_process(true)
 
 func _fixed_process(delta):
-	var motion = Vector2()
-	
-	var direction
-	if Input.is_action_pressed("move_north"):
-		direction = g.MOVE_NORTH
-	if Input.is_action_pressed("move_south"):
-		direction = g.MOVE_SOUTH
-	if Input.is_action_pressed("move_west"):
-		direction = g.MOVE_WEST
-	if Input.is_action_pressed("move_east"):
-		direction = g.MOVE_EAST
-	if Input.is_action_pressed("move_northeast"):
-		direction = g.MOVE_NORTHEAST
-	if Input.is_action_pressed("move_northwest"):
-		direction = g.MOVE_NORTHWEST
-	if Input.is_action_pressed("move_southeast"):
-		direction = g.MOVE_SOUTHEAST
-	if Input.is_action_pressed("move_southwest"):
-		direction = g.MOVE_SOUTHWEST
-	
-	if direction == g.MOVE_NORTH:
-		motion += Vector2(0, -1)
-	elif direction == g.MOVE_SOUTH:
-		motion += Vector2(0, 1)
-	elif direction == g.MOVE_WEST:
-		motion += Vector2(-2, 0)
-	elif direction == g.MOVE_EAST:
-		motion += Vector2(2, 0)
-	elif direction == g.MOVE_NORTHEAST:
-		motion += Vector2(2, -1)
-	elif direction == g.MOVE_NORTHWEST:
-		motion += Vector2(-2, -1)
-	elif direction == g.MOVE_SOUTHEAST:
-		motion += Vector2(2, 1)
-	elif direction == g.MOVE_SOUTHWEST:
-		motion += Vector2(-2, 1)
+	var direction = g.get_direction()
+	var motion = g.get_motion(direction)
 	
 	if motion.x == 0 and motion.y == 0 or direction == null:
 		idle(action.get_direction())
@@ -89,21 +55,3 @@ func idle(direction):
 func stop():
 	if anim.is_playing():
 		anim.stop(false)
-
-
-class Action extends Reference:
-	
-	var name
-	var direction
-	
-	func set_name(what):
-		name = what
-	
-	func get_name():
-		return name
-	
-	func set_direction(what):
-		direction = what
-	
-	func get_direction():
-		return direction
