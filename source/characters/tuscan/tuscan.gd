@@ -5,13 +5,19 @@ const MOTION_SPEED = 150
 
 onready var anim = get_node("sprite/anim")
 onready var g = get_node("/root/global")
+onready var damage_area = get_node("damage_area")
+onready var detection_area = get_node("detection_area")
 
 var Action = preload("res://source/common/action.gd")
 
 var action = Action.new()
 var ai = AI.new()
+var archer
 
 func _ready():
+	damage_area.connect("body_enter", self, "on_damage")
+	detection_area.connect("body_enter", self, "on_detect_enter")
+	detection_area.connect("body_exit", self, "on_detect_exit")
 	set_fixed_process(true)
 
 func _fixed_process(delta):
@@ -19,9 +25,24 @@ func _fixed_process(delta):
 		if action.get_name() == "walk":
 			ai.on_walk(delta, self)
 		elif action.get_name().begins_with("attack"):
-			if is_colliding():
-				print("true")
 			ai.on_attack(delta, self)
+
+func on_damage(body):
+	if body.get_name() == "archer":
+		print("tuscan is damaged.")
+
+func on_detect_enter(body):
+	if body.get_name() == "archer":
+		archer = body
+		hunt_archer()
+
+func on_detect_exit(body):
+	if body.get_name() == "archer":
+		archer = null
+
+func hunt_archer():
+	if archer != null:
+		pass
 
 func play_animation(action, direction):
 	stop()

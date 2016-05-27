@@ -5,12 +5,14 @@ const MOTION_SPEED = 250
 
 onready var g = get_node("/root/global")
 onready var anim = get_node("sprite/anim")
+onready var damage_area = get_node("damage_area")
 
 var Action = preload("res://source/common/action.gd")
 
 var action = Action.new()
 
 func _ready():
+	damage_area.connect("body_enter", self, "on_damage")
 	set_fixed_process(true)
 
 func _fixed_process(delta):
@@ -31,6 +33,10 @@ func _fixed_process(delta):
 		motion = get_collision_normal().slide(motion)
 		motion = move(motion)
 		slide_attempts -= 1
+
+func on_damage(body):
+	if body.get_name() == "tuscan":
+		print("archer is damaged.")
 
 func set_current_action(name, direction):
 	action.set_name(name)
