@@ -69,8 +69,9 @@ func attack(type, direction):
 	process_action(str("attack", type), direction)
 
 func activate_ai():
-	var direction = g.get_random_direction()
-	walk(direction)
+#	var direction = g.get_random_direction()
+#	walk(direction)
+	attack(1, g.MOVE_SOUTH)
 
 
 class AI extends Reference:
