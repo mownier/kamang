@@ -12,8 +12,7 @@ var Action = preload("res://source/common/action.gd")
 var action = Action.new()
 
 func _ready():
-	damage_area.connect("body_enter", self, "on_damage")
-	damage_area.connect("body_exit", self, "on_damage_deactivated")
+	add_collision_exception_with(self)
 	set_fixed_process(true)
 
 func _fixed_process(delta):
@@ -35,13 +34,8 @@ func _fixed_process(delta):
 		motion = move(motion)
 		slide_attempts -= 1
 
-func on_damage(body):
-	if body.get_name() == "tuscan":
-		print("archer is damaged.")
-
-func on_damage_deactivated(body):
-	if body.get_name() == "tuscan":
-		print("archer not damaged.")
+func take_damage():
+	print("archer took damage.")
 
 func set_current_action(name, direction):
 	action.set_name(name)

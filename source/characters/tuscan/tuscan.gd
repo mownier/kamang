@@ -6,7 +6,7 @@ const MOTION_SPEED = 150
 onready var anim = get_node("sprite/anim")
 onready var g = get_node("/root/global")
 onready var damage_area = get_node("damage_area")
-onready var detection_area = get_node("detection_area")
+onready var sword_area = get_node("sword_area")
 
 var Action = preload("res://source/common/action.gd")
 
@@ -15,9 +15,8 @@ var ai = AI.new()
 var archer
 
 func _ready():
-	damage_area.connect("body_enter", self, "on_damage")
-	detection_area.connect("body_enter", self, "on_detect_enter")
-	detection_area.connect("body_exit", self, "on_detect_exit")
+	add_collision_exception_with(self)
+	sword_area.connect("area_enter", self, "on_sword_inflict")
 	set_fixed_process(true)
 
 func _fixed_process(delta):
@@ -27,18 +26,10 @@ func _fixed_process(delta):
 		elif action.get_name().begins_with("attack"):
 			ai.on_attack(delta, self)
 
-func on_damage(body):
-	if body.get_name() == "archer":
-		print("tuscan is damaged.")
-
-func on_detect_enter(body):
-	if body.get_name() == "archer":
-		archer = body
-		hunt_archer()
-
-func on_detect_exit(body):
-	if body.get_name() == "archer":
-		archer = null
+func on_sword_inflict(object):
+	if object.get_parent().get_name().to_lower() == "archer":
+		var archer = object.get_parent()
+		archer.take_damage()
 
 func hunt_archer():
 	if archer != null:
@@ -71,7 +62,7 @@ func attack(type, direction):
 func activate_ai():
 #	var direction = g.get_random_direction()
 #	walk(direction)
-	attack(1, g.MOVE_SOUTH)
+	attack(1, g.MOVE_NORTH)
 
 
 class AI extends Reference:
