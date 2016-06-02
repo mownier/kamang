@@ -62,7 +62,7 @@ func attack(type, direction):
 func activate_ai():
 #	var direction = g.get_random_direction()
 #	walk(direction)
-	attack(1, g.MOVE_NORTH)
+	attack(1, g.MOVE_WEST)
 
 
 class AI extends Reference:
