@@ -138,7 +138,7 @@ func identify_direction(pos, size):
 	return dir
 
 func degree2direction(degree):
-	if (degree >= 0 and degree <= 22.5) or (degree <= 0 and degree >= -22.5):
+	if (degree > 0 and degree <= 22.5) or (degree < 0 and degree >= -22.5):
 		return MOVE_SOUTH
 	elif degree > 22.5 and degree <= 67.5:
 		return MOVE_SOUTHEAST
@@ -146,7 +146,7 @@ func degree2direction(degree):
 		return MOVE_EAST
 	elif degree > 112.5 and degree <= 157.5:
 		return MOVE_NORTHEAST
-	elif (degree > 157.5 and degree <= 180) or (degree < 157.5 and degree >= -180):
+	elif (degree > 157.5 and degree <= 180) or (degree < -157.5 and degree >= -180):
 		return MOVE_NORTH
 	elif degree < -112.5 and degree >= -157.5:
 		return MOVE_NORTHWEST

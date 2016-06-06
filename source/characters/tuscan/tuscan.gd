@@ -93,11 +93,12 @@ class AI extends Reference:
 					to_walk = 0
 			
 			var at = points[points.size() - 1]
-			var rad = at.angle_to_point(end)
+			var rad = at.angle_to_point(begin)
 			var degree = rad2deg(rad)
 			var direction = tuscan.g.degree2direction(degree)
 			tuscan.set_pos(at)
-			tuscan.walk(direction)
+			if direction != null:
+				tuscan.walk(direction)
 	
 	func on_attack(delta, tuscan):
 		pass
