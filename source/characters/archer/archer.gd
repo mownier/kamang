@@ -1,15 +1,10 @@
 
 extends KinematicBody2D
 
-const MOTION_SPEED = 250
-
 onready var g = get_node("/root/global")
 onready var anim = get_node("sprite/anim")
 onready var damage_area = get_node("damage_area")
-
-var Action = preload("res://source/common/action.gd")
-
-var action = Action.new()
+onready var action = g.Action.new()
 
 func _ready():
 	add_collision_exception_with(self)
@@ -24,7 +19,7 @@ func _fixed_process(delta):
 	else:
 		run(direction)
 	
-	motion = motion.normalized() * MOTION_SPEED * delta
+	motion = motion.normalized() * g.MOTION_SPEED * delta
 	motion = move(motion)
 	
 	# Make character slide nicely through the world

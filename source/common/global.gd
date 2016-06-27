@@ -1,6 +1,9 @@
 
 extends Node
 
+const MOTION_SPEED = 250
+const MINOTAUR_SPEED = 100
+
 const MOVE_NORTH = "n"
 const MOVE_SOUTH = "s"
 const MOVE_EAST = "e"
@@ -9,6 +12,9 @@ const MOVE_NORTHEAST = "ne"
 const MOVE_NORTHWEST = "nw"
 const MOVE_SOUTHEAST = "se"
 const MOVE_SOUTHWEST = "sw"
+
+var Action = preload("res://source/common/action.gd")
+var current_direction
 
 func _ready():
 	pass
@@ -154,3 +160,6 @@ func degree2direction(degree):
 		return MOVE_WEST
 	elif degree < -22.5 and degree >= -67.5:
 		return MOVE_SOUTHWEST
+
+func get_current_world():
+	return "res://source/worlds/3/world3.scn"
