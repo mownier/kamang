@@ -1,9 +1,13 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://source/gui/game.gd" type="Script" id=1]
 [ext_resource path="res://assets/Navpad/navpad_bg.png" type="Texture" id=2]
 [ext_resource path="res://assets/Navpad/navpad_ball.png" type="Texture" id=3]
-[ext_resource path="res://assets/Minotaur/minotaur_alpha.png" type="Texture" id=4]
+[ext_resource path="res://assets/Portraits/FlareMaleHero2.png" type="Texture" id=4]
+[ext_resource path="res://assets/Action Buttons/range.png" type="Texture" id=5]
+[ext_resource path="res://assets/Action Buttons/magic.png" type="Texture" id=6]
+[ext_resource path="res://assets/Action Buttons/melee.png" type="Texture" id=7]
+[ext_resource path="res://source/common/dialog.tscn" type="PackedScene" id=8]
 
 [sub_resource type="GDScript" id=1]
 
@@ -35,6 +39,10 @@ border_size = 0
 border_blend = true
 draw_bg = true
 
+[sub_resource type="GDScript" id=4]
+
+script/source = "\nextends Node2D\n\nonready var shoot = get_node(\"shoot\")\nonready var cast = get_node(\"cast\")\nonready var swing = get_node(\"swing\")\nonready var g = get_node(\"/root/global\")\n\nfunc _ready():\n\tshoot.connect(\"pressed\", self, \"will_shoot\")\n\tcast.connect(\"pressed\", self, \"will_cast\")\n\tswing.connect(\"pressed\", self, \"will_swing\")\n\nfunc will_shoot():\n\tg.triggered_action = \"shoot\"\n\nfunc will_cast():\n\tg.triggered_action = \"cast\"\n\t\nfunc will_swing():\n\tg.triggered_action = \"swing\"\n"
+
 [node name="game" type="Node2D"]
 
 script/script = ExtResource( 1 )
@@ -45,12 +53,13 @@ layer = 2
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
+__meta__ = { "_editor_collapsed":true }
 
 [node name="navigation" type="Node2D" parent="controls"]
 
 transform/pos = Vector2( 76.5637, 248.425 )
 script/script = SubResource( 1 )
-__meta__ = { "_editor_collapsed":true }
+__meta__ = { "_edit_group_":true, "_edit_lock_":true }
 
 [node name="bg" type="Sprite" parent="controls/navigation"]
 
@@ -112,14 +121,72 @@ margin/bottom = 27.0
 custom_styles/panel = SubResource( 3 )
 __meta__ = { "_edit_lock_":true }
 
-[node name="avatar" type="Sprite" parent="controls/user"]
+[node name="Sprite" type="Sprite" parent="controls/user"]
 
-transform/pos = Vector2( 17.5924, 17.391 )
+transform/pos = Vector2( 19.0352, 18.3893 )
+transform/scale = Vector2( 0.00999458, 0.00999458 )
 texture = ExtResource( 4 )
-vframes = 8
-hframes = 24
-region = true
-region_rect = Rect2( 53, 802, 21, 21 )
-__meta__ = { "_edit_lock_":true }
+
+[node name="action" type="Node2D" parent="controls"]
+
+transform/pos = Vector2( 480.271, 243.39 )
+script/script = SubResource( 4 )
+__meta__ = { "_edit_group_":true, "_edit_lock_":true, "_editor_collapsed":true }
+
+[node name="shoot" type="TextureButton" parent="controls/action"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -50.0
+margin/top = -6.0
+margin/right = -2.0
+margin/bottom = 42.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 5 )
+
+[node name="cast" type="TextureButton" parent="controls/action"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -3.0
+margin/top = -61.0
+margin/right = 45.0
+margin/bottom = -13.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 6 )
+
+[node name="swing" type="TextureButton" parent="controls/action"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 8.0
+margin/top = -2.0
+margin/right = 72.0
+margin/bottom = 62.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 7 )
+
+[node name="conversation" type="CanvasLayer" parent="."]
+
+layer = 2
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="dialog" parent="conversation" instance=ExtResource( 8 )]
+
+visibility/visible = false
 
 

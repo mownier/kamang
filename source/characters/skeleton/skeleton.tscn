@@ -1,0 +1,24 @@
+[gd_scene format=1]
+
+[node name="skeleton" type="KinematicBody2D"]
+
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+
+[node name="sprite" type="AnimatedSprite" parent="."]
+
+animation = "default"
+
+[node name="anim" type="AnimationPlayer" parent="sprite"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+

@@ -1,0 +1,1036 @@
+[gd_scene load_steps=33 format=1]
+
+[ext_resource path="res://source/characters/hero/hero.gd" type="Script" id=1]
+[ext_resource path="res://assets/Hero/steel_armor.png" type="Texture" id=2]
+[ext_resource path="res://assets/Hero/longsword.png" type="Texture" id=3]
+[ext_resource path="res://assets/Hero/longbow.png" type="Texture" id=4]
+[ext_resource path="res://assets/Hero/staff.png" type="Texture" id=5]
+[ext_resource path="res://assets/Hero/shield.png" type="Texture" id=6]
+[ext_resource path="res://assets/Hero/male_head1.png" type="Texture" id=7]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 4.50892
+
+[sub_resource type="Animation" id=2]
+
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/head:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 133, 140 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/armor:frame")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 133, 140 ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/melee:frame")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 133, 140 ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/range:frame")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 133, 140 ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/magic:frame")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 133, 140 ] }
+tracks/5/type = "value"
+tracks/5/path = NodePath("body/shield:frame")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 133, 140 ] }
+
+[sub_resource type="Animation" id=3]
+
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/head:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 69, 76 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/armor:frame")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 69, 76 ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/melee:frame")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 69, 76 ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/range:frame")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 69, 76 ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/magic:frame")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 69, 76 ] }
+tracks/5/type = "value"
+tracks/5/path = NodePath("body/shield:frame")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 69, 76 ] }
+
+[sub_resource type="Animation" id=4]
+
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/head:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 101, 108 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/armor:frame")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 101, 108 ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/melee:frame")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 101, 108 ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/range:frame")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 101, 108 ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/magic:frame")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 101, 108 ] }
+tracks/5/type = "value"
+tracks/5/path = NodePath("body/shield:frame")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 101, 108 ] }
+
+[sub_resource type="Animation" id=5]
+
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/head:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 37, 44 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/armor:frame")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 37, 44 ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/melee:frame")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 37, 44 ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/range:frame")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 37, 44 ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/magic:frame")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 37, 44 ] }
+tracks/5/type = "value"
+tracks/5/path = NodePath("body/shield:frame")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 37, 44 ] }
+
+[sub_resource type="Animation" id=6]
+
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/head:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 197, 204 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/armor:frame")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 197, 204 ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/melee:frame")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 197, 204 ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/range:frame")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 197, 204 ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/magic:frame")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 197, 204 ] }
+tracks/5/type = "value"
+tracks/5/path = NodePath("body/shield:frame")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 197, 204 ] }
+
+[sub_resource type="Animation" id=7]
+
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/head:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 165, 172 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/armor:frame")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 165, 172 ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/melee:frame")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 165, 172 ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/range:frame")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 165, 172 ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/magic:frame")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 165, 172 ] }
+tracks/5/type = "value"
+tracks/5/path = NodePath("body/shield:frame")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 165, 172 ] }
+
+[sub_resource type="Animation" id=8]
+
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/head:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 229, 236 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/armor:frame")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 229, 236 ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/melee:frame")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 229, 236 ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/range:frame")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 229, 236 ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/magic:frame")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 229, 236 ] }
+tracks/5/type = "value"
+tracks/5/path = NodePath("body/shield:frame")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 229, 236 ] }
+
+[sub_resource type="Animation" id=9]
+
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/head:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 5, 12 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/armor:frame")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 5, 12 ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/melee:frame")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 5, 12 ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/range:frame")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 5, 12 ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/magic:frame")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 5, 12 ] }
+tracks/5/type = "value"
+tracks/5/path = NodePath("body/shield:frame")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 5, 12 ] }
+
+[sub_resource type="Animation" id=10]
+
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/head:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 128, 132 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/armor:frame")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 128, 132 ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/melee:frame")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 128, 132 ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/range:frame")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 128, 132 ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/magic:frame")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 128, 132 ] }
+tracks/5/type = "value"
+tracks/5/path = NodePath("body/shield:frame")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 128, 132 ] }
+
+[sub_resource type="Animation" id=11]
+
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/head:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 64, 68 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/armor:frame")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 64, 68 ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/melee:frame")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 64, 68 ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/range:frame")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 64, 68 ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/magic:frame")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 64, 68 ] }
+tracks/5/type = "value"
+tracks/5/path = NodePath("body/shield:frame")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 64, 68 ] }
+
+[sub_resource type="Animation" id=12]
+
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/head:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 96, 100 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/armor:frame")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 96, 100 ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/melee:frame")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 96, 100 ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/range:frame")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 96, 100 ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/magic:frame")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 96, 100 ] }
+tracks/5/type = "value"
+tracks/5/path = NodePath("body/shield:frame")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 96, 100 ] }
+
+[sub_resource type="Animation" id=13]
+
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/head:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 32, 36 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/armor:frame")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 32, 36 ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/melee:frame")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 32, 36 ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/range:frame")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 32, 36 ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/magic:frame")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 32, 36 ] }
+tracks/5/type = "value"
+tracks/5/path = NodePath("body/shield:frame")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 32, 36 ] }
+
+[sub_resource type="Animation" id=14]
+
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/head:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 192, 196 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/armor:frame")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 192, 196 ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/melee:frame")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 192, 196 ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/range:frame")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 192, 196 ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/magic:frame")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 192, 196 ] }
+tracks/5/type = "value"
+tracks/5/path = NodePath("body/shield:frame")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 192, 196 ] }
+
+[sub_resource type="Animation" id=15]
+
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/head:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 160, 164 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/armor:frame")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 160, 164 ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/melee:frame")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 160, 164 ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/range:frame")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 160, 164 ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/magic:frame")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 160, 164 ] }
+tracks/5/type = "value"
+tracks/5/path = NodePath("body/shield:frame")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 160, 164 ] }
+
+[sub_resource type="Animation" id=16]
+
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/head:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 224, 228 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/armor:frame")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 224, 228 ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/melee:frame")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 224, 228 ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/range:frame")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 224, 228 ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/magic:frame")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 224, 228 ] }
+tracks/5/type = "value"
+tracks/5/path = NodePath("body/shield:frame")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 224, 228 ] }
+
+[sub_resource type="Animation" id=17]
+
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/head:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 0, 4 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/armor:frame")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 0, 4 ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/melee:frame")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 0, 4 ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/range:frame")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 0, 4 ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/magic:frame")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 0, 4 ] }
+tracks/5/type = "value"
+tracks/5/path = NodePath("body/shield:frame")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 0, 4 ] }
+
+[sub_resource type="Animation" id=18]
+
+resource/name = "swing_e"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/head:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 141, 144 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/armor:frame")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 141, 144 ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/melee:frame")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 141, 144 ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/range:frame")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 141, 144 ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/magic:frame")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 141, 144 ] }
+tracks/5/type = "value"
+tracks/5/path = NodePath("body/shield:frame")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 141, 144 ] }
+
+[sub_resource type="Animation" id=19]
+
+resource/name = "swing_n"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/head:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 77, 80 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/armor:frame")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 77, 80 ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/melee:frame")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 77, 80 ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/range:frame")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 77, 80 ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/magic:frame")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 77, 80 ] }
+tracks/5/type = "value"
+tracks/5/path = NodePath("body/shield:frame")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 77, 80 ] }
+
+[sub_resource type="Animation" id=20]
+
+resource/name = "swing_ne"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/head:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 109, 112 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/armor:frame")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 109, 112 ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/melee:frame")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 109, 112 ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/range:frame")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 109, 112 ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/magic:frame")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 109, 112 ] }
+tracks/5/type = "value"
+tracks/5/path = NodePath("body/shield:frame")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 109, 112 ] }
+
+[sub_resource type="Animation" id=21]
+
+resource/name = "swing_nw"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/head:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 45, 48 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/armor:frame")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 45, 48 ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/melee:frame")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 45, 48 ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/range:frame")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 45, 48 ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/magic:frame")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 45, 48 ] }
+tracks/5/type = "value"
+tracks/5/path = NodePath("body/shield:frame")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 45, 48 ] }
+
+[sub_resource type="Animation" id=22]
+
+resource/name = "swing_s"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/head:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 205, 208 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/armor:frame")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 205, 208 ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/melee:frame")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 205, 208 ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/range:frame")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 205, 208 ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/magic:frame")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 205, 208 ] }
+tracks/5/type = "value"
+tracks/5/path = NodePath("body/shield:frame")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 205, 208 ] }
+
+[sub_resource type="Animation" id=23]
+
+resource/name = "swing_se"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/head:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 173, 176 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/armor:frame")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 173, 176 ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/melee:frame")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 173, 176 ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/range:frame")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 173, 176 ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/magic:frame")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 173, 176 ] }
+tracks/5/type = "value"
+tracks/5/path = NodePath("body/shield:frame")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 173, 176 ] }
+
+[sub_resource type="Animation" id=24]
+
+resource/name = "swing_sw"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/head:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 237, 240 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/armor:frame")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 237, 240 ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/melee:frame")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 237, 240 ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/range:frame")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 237, 240 ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/magic:frame")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 237, 240 ] }
+tracks/5/type = "value"
+tracks/5/path = NodePath("body/shield:frame")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 237, 240 ] }
+
+[sub_resource type="Animation" id=25]
+
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/head:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 13, 16 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/armor:frame")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 13, 16 ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/melee:frame")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 13, 16 ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/range:frame")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 13, 16 ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/magic:frame")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 13, 16 ] }
+tracks/5/type = "value"
+tracks/5/path = NodePath("body/shield:frame")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 13, 16 ] }
+
+[node name="hero" type="KinematicBody2D"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 1 )
+
+[node name="anim" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/run_e = SubResource( 2 )
+anims/run_n = SubResource( 3 )
+anims/run_ne = SubResource( 4 )
+anims/run_nw = SubResource( 5 )
+anims/run_s = SubResource( 6 )
+anims/run_se = SubResource( 7 )
+anims/run_sw = SubResource( 8 )
+anims/run_w = SubResource( 9 )
+anims/stance_e = SubResource( 10 )
+anims/stance_n = SubResource( 11 )
+anims/stance_ne = SubResource( 12 )
+anims/stance_nw = SubResource( 13 )
+anims/stance_s = SubResource( 14 )
+anims/stance_se = SubResource( 15 )
+anims/stance_sw = SubResource( 16 )
+anims/stance_w = SubResource( 17 )
+anims/swing_e = SubResource( 18 )
+anims/swing_n = SubResource( 19 )
+anims/swing_ne = SubResource( 20 )
+anims/swing_nw = SubResource( 21 )
+anims/swing_s = SubResource( 22 )
+anims/swing_se = SubResource( 23 )
+anims/swing_sw = SubResource( 24 )
+anims/swing_w = SubResource( 25 )
+next/run_e = ""
+next/run_n = ""
+next/run_ne = ""
+next/run_nw = ""
+next/run_s = ""
+next/run_se = ""
+next/run_sw = ""
+next/run_w = ""
+next/stance_e = ""
+next/stance_n = ""
+next/stance_ne = ""
+next/stance_nw = ""
+next/stance_s = ""
+next/stance_se = ""
+next/stance_sw = ""
+next/swing_e = ""
+next/swing_n = ""
+next/swing_ne = ""
+next/swing_nw = ""
+next/swing_s = ""
+next/swing_se = ""
+next/swing_sw = ""
+next/swing_w = ""
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="camera" type="Camera2D" parent="."]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = false
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
+__meta__ = { "_edit_lock_":true }
+
+[node name="body" type="Node2D" parent="."]
+
+transform/pos = Vector2( 0, -32 )
+__meta__ = { "_editor_collapsed":true }
+
+[node name="armor" type="Sprite" parent="body"]
+
+texture = ExtResource( 2 )
+vframes = 8
+hframes = 32
+frame = 65
+__meta__ = { "_edit_lock_":true }
+
+[node name="melee" type="Sprite" parent="body"]
+
+texture = ExtResource( 3 )
+vframes = 8
+hframes = 32
+frame = 65
+__meta__ = { "_edit_lock_":true }
+
+[node name="range" type="Sprite" parent="body"]
+
+visibility/visible = false
+texture = ExtResource( 4 )
+vframes = 8
+hframes = 32
+frame = 65
+__meta__ = { "_edit_lock_":true }
+
+[node name="magic" type="Sprite" parent="body"]
+
+visibility/visible = false
+texture = ExtResource( 5 )
+vframes = 8
+hframes = 32
+frame = 65
+__meta__ = { "_edit_lock_":true }
+
+[node name="shield" type="Sprite" parent="body"]
+
+texture = ExtResource( 6 )
+vframes = 8
+hframes = 32
+frame = 65
+__meta__ = { "_edit_lock_":true }
+
+[node name="head" type="Sprite" parent="body"]
+
+texture = ExtResource( 7 )
+vframes = 8
+hframes = 32
+frame = 65
+__meta__ = { "_edit_lock_":true }
+
+[node name="collision" type="CollisionShape2D" parent="."]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+

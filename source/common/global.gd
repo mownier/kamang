@@ -3,6 +3,7 @@ extends Node
 
 const MOTION_SPEED = 250
 const MINOTAUR_SPEED = 100
+const HERO_SPEED = 100
 
 const MOVE_NORTH = "n"
 const MOVE_SOUTH = "s"
@@ -14,7 +15,10 @@ const MOVE_SOUTHEAST = "se"
 const MOVE_SOUTHWEST = "sw"
 
 var Action = preload("res://source/common/action.gd")
+var Conversation = preload("res://source/common/dialog.tscn")
 var current_direction
+var triggered_action
+var quest_dialogue
 
 func _ready():
 	pass

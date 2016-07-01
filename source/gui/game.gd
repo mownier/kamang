@@ -8,4 +8,3 @@ func _ready():
 	var w = load(world).instance()
 	add_child(w)
 
-

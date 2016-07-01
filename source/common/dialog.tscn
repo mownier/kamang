@@ -1,0 +1,116 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://assets/Portraits/Andrew.png" type="Texture" id=1]
+[ext_resource path="res://assets/Portraits/FlareMaleHero2.png" type="Texture" id=2]
+[ext_resource path="res://assets/Window/texture.jpg" type="Texture" id=3]
+
+[sub_resource type="GDScript" id=2]
+
+script/source = "\nextends Node2D\n\nonready var g = get_node(\"/root/global\")\nonready var left = get_node(\"left\")\nonready var right = get_node(\"right\")\nonready var text = get_node(\"text_bg/text\")\nonready var name = get_node(\"text_bg/name\")\n\nvar messages = Dictionary()\nvar index = -1\n\nfunc _ready():\n\tset_process(true)\n\nfunc _process(delta):\n\tif g.quest_dialogue != null:\n\t\tif not is_visible():\n\t\t\tvar json = get_json(g.quest_dialogue)\n\t\t\tmessages.empty()\n\t\t\tmessages.parse_json(json)\n\t\t\ton_next_text()\n\t\t\tset_hidden(false)\n\telse:\n\t\tif is_visible():\n\t\t\tset_hidden(true)\n\nfunc on_next_text():\n\tindex += 1\n\tif index < messages[\"dialogue\"].size():\n\t\tshow_message()\n\telse:\n\t\tindex = -1\n\t\tg.quest_dialogue = null\n\nfunc get_json(path):\n\tvar reader = File.new()\n\tvar data = \"\"\n\tif reader.file_exists(path):\n\t\treader.open(path, File.READ)\n\t\tdata = reader.get_as_text()\n\tif reader.is_open():\n\t\treader.close()\n\treturn data\n\nfunc show_message():\n\tvar dialogue = messages[\"dialogue\"]\n\tvar characters = messages[\"characters\"]\n\t\n\tvar info = dialogue[index]\n\tvar message = info[\"message\"]\n\tvar position = info[\"position\"]\n\tvar character = characters[info[\"character\"]]\n\tvar char_name = character[\"name\"]\n\t\n\ttext.set_text(message)\n\tname.set_text(char_name)\n\t\n\tif position == \"right\":\n\t\tright.set_hidden(false)\n\t\tleft.set_hidden(true)\n\telif position == \"left\":\n\t\tright.set_hidden(true)\n\t\tleft.set_hidden(false)\n"
+
+[sub_resource type="StyleBoxFlat" id=3]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+bg_color = Color( 0.117188, 0.106659, 0.106659, 0.423401 )
+light_color = Color( 0.8, 0.8, 0.8, 1 )
+dark_color = Color( 0.8, 0.8, 0.8, 1 )
+border_size = 0
+border_blend = true
+draw_bg = true
+
+[node name="dialog" type="Node2D"]
+
+script/script = SubResource( 2 )
+
+[node name="background" type="PanelContainer" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -1.0
+margin/top = 1.0
+margin/right = 567.0
+margin/bottom = 321.0
+custom_styles/panel = SubResource( 3 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="left" type="Sprite" parent="."]
+
+transform/pos = Vector2( 131.817, 150.224 )
+transform/scale = Vector2( 0.090173, 0.0900594 )
+texture = ExtResource( 1 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="right" type="Sprite" parent="."]
+
+transform/pos = Vector2( 438.619, 148.287 )
+transform/scale = Vector2( 0.0478873, 0.0478873 )
+texture = ExtResource( 2 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="text_bg" type="Sprite" parent="."]
+
+transform/pos = Vector2( 286.145, 253.027 )
+texture = ExtResource( 3 )
+region = true
+region_rect = Rect2( 0, 0, 440, 120 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="text" type="Label" parent="text_bg"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -199.0
+margin/top = -30.0
+margin/right = 197.0
+margin/bottom = 52.0
+custom_colors/font_color = Color( 0.261719, 0.152392, 0.0245361, 1 )
+text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = { "_edit_lock_":true }
+
+[node name="name" type="Label" parent="text_bg"]
+
+rect/scale = Vector2( 1.25, 1.25 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -198.0
+margin/top = -51.0
+margin/right = 115.0
+margin/bottom = -37.0
+custom_colors/font_color = Color( 0.492188, 0.392212, 0, 1 )
+text = "CHARACTER"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = { "_edit_lock_":true }
+
+[node name="next_text" type="TextureButton" parent="text_bg"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -219.0
+margin/top = -60.0
+margin/right = 220.0
+margin/bottom = 60.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+__meta__ = { "_edit_lock_":true }
+
+[connection signal="pressed" from="text_bg/next_text" to="." method="on_next_text"]
+
+
