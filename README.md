@@ -13,3 +13,4 @@ An exploratory project for isometric game using godot game engine.
 8. http://opengameart.org/content/flare-portrait-pack-number-one
 9. http://opengameart.org/content/wandering-vendor-npc
 10. http://pdtextures.blogspot.com/
+11. http://opengameart.org/content/osare-weapon-icons
