@@ -1,0 +1,265 @@
+[gd_scene load_steps=20 format=1]
+
+[ext_resource path="res://source/characters/goblin/goblin.gd" type="Script" id=1]
+[ext_resource path="res://assets/Goblin/goblin.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "charge_w"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ 12 ] }
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "hop_e"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 196, 203 ] }
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "hop_n"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 100, 107 ] }
+
+[sub_resource type="Animation" id=4]
+
+resource/name = "hop_ne"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 148, 155 ] }
+
+[sub_resource type="Animation" id=5]
+
+resource/name = "hop_nw"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 52, 59 ] }
+
+[sub_resource type="Animation" id=6]
+
+resource/name = "hop_s"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 292, 299 ] }
+
+[sub_resource type="Animation" id=7]
+
+resource/name = "hop_se"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 244, 251 ] }
+
+[sub_resource type="Animation" id=8]
+
+resource/name = "hop_sw"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 340, 347 ] }
+
+[sub_resource type="Animation" id=9]
+
+resource/name = "hop_w"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 4, 11 ] }
+
+[sub_resource type="Animation" id=10]
+
+resource/name = "stance_e"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 192, 195 ] }
+
+[sub_resource type="Animation" id=11]
+
+resource/name = "stance_n"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 96, 99 ] }
+
+[sub_resource type="Animation" id=12]
+
+resource/name = "stance_ne"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 144, 147 ] }
+
+[sub_resource type="Animation" id=13]
+
+resource/name = "stance_nw"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 48, 51 ] }
+
+[sub_resource type="Animation" id=14]
+
+resource/name = "stance_s"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 288, 291 ] }
+
+[sub_resource type="Animation" id=15]
+
+resource/name = "stance_se"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 240, 243 ] }
+
+[sub_resource type="Animation" id=16]
+
+resource/name = "stance_sw"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 336, 339 ] }
+
+[sub_resource type="Animation" id=17]
+
+resource/name = "stance_w"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 0, 3 ] }
+
+[node name="goblin" type="KinematicBody2D"]
+
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 1 )
+
+[node name="sprite" type="Sprite" parent="."]
+
+transform/pos = Vector2( 0.104668, -30.4405 )
+texture = ExtResource( 2 )
+
+[node name="anim" type="AnimationPlayer" parent="sprite"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/charge_w = SubResource( 1 )
+anims/hop_e = SubResource( 2 )
+anims/hop_n = SubResource( 3 )
+anims/hop_ne = SubResource( 4 )
+anims/hop_nw = SubResource( 5 )
+anims/hop_s = SubResource( 6 )
+anims/hop_se = SubResource( 7 )
+anims/hop_sw = SubResource( 8 )
+anims/hop_w = SubResource( 9 )
+anims/stance_e = SubResource( 10 )
+anims/stance_n = SubResource( 11 )
+anims/stance_ne = SubResource( 12 )
+anims/stance_nw = SubResource( 13 )
+anims/stance_s = SubResource( 14 )
+anims/stance_se = SubResource( 15 )
+anims/stance_sw = SubResource( 16 )
+anims/stance_w = SubResource( 17 )
+next/hop_e = ""
+next/hop_n = ""
+next/hop_ne = ""
+next/hop_nw = ""
+next/hop_s = ""
+next/hop_se = ""
+next/hop_sw = ""
+next/hop_w = ""
+next/stance_e = ""
+next/stance_n = ""
+next/stance_ne = ""
+next/stance_nw = ""
+next/stance_s = ""
+next/stance_se = ""
+next/stance_sw = ""
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+
