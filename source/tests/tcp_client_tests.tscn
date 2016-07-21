@@ -1,0 +1,91 @@
+[gd_scene load_steps=2 format=1]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "\nextends Node\n\nvar TCPClient = preload(\"res://source/common/tcp_client.gd\")\nvar client = TCPClient.new(\"127.0.0.1\", 9000)\n\nonready var data = get_node(\"data\")\nonready var replies = get_node(\"replies\")\n\nfunc _enter_tree():\n\tadd_child(client)\n\nfunc _ready():\n\tclient.connect(\"on_update_connection\", self, \"connection_update\")\n\tclient.connect(\"on_receive_data\", self, \"data_received\")\n\nfunc connection_update(status):\n\tif status == client.CONNECTION_OK:\n\t\treplies.add_item(\"connection ok...\")\n\telif status == client.CONNECTION_FAIL:\n\t\treplies.add_item(\"connection fail...\")\n\telif status == client.CONNECTION_DROP:\n\t\treplies.add_item(\"connection drop...\")\n\telif status == client.CONNECTION_RESOLVING:\n\t\treplies.add_item(\"connecting to server...\")\n\telif status == client.CONNECTION_TIMEOUT:\n\t\treplies.add_item(\"connection timeout...\")\n\nfunc data_received(data):\n\treplies.add_item(data.get_string_from_utf8())\n\nfunc error_sent():\n\treplies.add_item(\"error sending data...\")\n\nfunc on_disconnect_pressed():\n\tclient.stop()\n\nfunc on_connect_pressed():\n\tclient.start()\n\nfunc on_send_pressed():\n\tvar err = client.send(data.get_text() + \"\\n\")\n\tif err == OK:\n\t\tdata.clear()\n"
+
+[node name="tcp_client_tests" type="Node"]
+
+script/script = SubResource( 1 )
+
+[node name="disconnect" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 38.0
+margin/top = 37.0
+margin/right = 145.0
+margin/bottom = 72.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Disconnect"
+flat = false
+
+[node name="connect" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 40.0
+margin/top = 84.0
+margin/right = 144.0
+margin/bottom = 119.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Connect"
+flat = false
+
+[node name="replies" type="ItemList" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 159.0
+margin/top = 34.0
+margin/right = 499.0
+margin/bottom = 228.0
+
+[node name="data" type="LineEdit" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 163.0
+margin/top = 240.0
+margin/right = 436.0
+margin/bottom = 264.0
+placeholder/alpha = 0.6
+focus_mode = 2
+caret/caret_blink = false
+caret/caret_blink_speed = 0.65
+
+[node name="send" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 447.0
+margin/top = 236.0
+margin/right = 526.0
+margin/bottom = 271.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Send"
+flat = false
+
+[connection signal="pressed" from="disconnect" to="." method="on_disconnect_pressed"]
+
+[connection signal="pressed" from="connect" to="." method="on_connect_pressed"]
+
+[connection signal="pressed" from="send" to="." method="on_send_pressed"]
+
+
