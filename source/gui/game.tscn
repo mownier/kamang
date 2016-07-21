@@ -49,11 +49,11 @@ script/script = ExtResource( 1 )
 
 [node name="controls" type="CanvasLayer" parent="."]
 
+editor/display_folded = true
 layer = 2
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
-__meta__ = { "_editor_collapsed":true }
 
 [node name="navigation" type="Node2D" parent="controls"]
 
@@ -85,6 +85,7 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="user" type="Container" parent="controls"]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -93,7 +94,7 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 40.0
 margin/bottom = 40.0
-__meta__ = { "_edit_lock_":true, "_editor_collapsed":true }
+__meta__ = { "_edit_lock_":true }
 
 [node name="health" type="Panel" parent="controls/user"]
 
@@ -129,9 +130,10 @@ texture = ExtResource( 4 )
 
 [node name="action" type="Node2D" parent="controls"]
 
+editor/display_folded = true
 transform/pos = Vector2( 480.271, 243.39 )
 script/script = SubResource( 4 )
-__meta__ = { "_edit_group_":true, "_edit_lock_":true, "_editor_collapsed":true }
+__meta__ = { "_edit_group_":true, "_edit_lock_":true }
 
 [node name="shoot" type="TextureButton" parent="controls/action"]
 
@@ -180,6 +182,7 @@ textures/normal = ExtResource( 7 )
 
 [node name="conversation" type="CanvasLayer" parent="."]
 
+editor/display_folded = true
 layer = 2
 offset = Vector2( 0, 0 )
 rotation = 0.0
