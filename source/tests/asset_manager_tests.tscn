@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=1]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "\nextends Node\n\nvar AssetManager = preload(\"res://source/common/asset_manager.gd\")\nvar manager = AssetManager.new(\"127.0.0.1\", 9001)\n\nonready var asset_name = get_node(\"asset_name\")\nonready var get_asset = get_node(\"get_asset\")\nonready var sprite_goblin = get_node(\"sprite_goblin\")\nonready var sprite_minotaur = get_node(\"sprite_minotaur\")\n\nfunc _ready():\n\tasset_name.set_text(\"spritesheet_goblin.png, spritesheet_minotaur.png\")\n\tget_asset.connect(\"pressed\", self, \"on_get_asset\")\n\tmanager.connect(\"on_request_result\", self, \"result_request\")\n\tadd_child(manager)\n\nfunc result_request(result, id, filepath):\n\tif result == OK:\n\t\tvar tex = ImageTexture.new()\n\t\ttex.load(filepath)\n\t\tif filepath.ends_with(\"goblin.png\"):\n\t\t\tsprite_goblin.set_texture(tex)\n\t\telif filepath.ends_with(\"minotaur.png\"):\n\t\t\tsprite_minotaur.set_texture(tex)\n\nfunc on_get_asset():\n\tvar name = asset_name.get_text()\n\tvar names = name.split(\",\", false)\n\n\tfor n in names:\n\t\tname = n.strip_edges()\n\t\tmanager.request_asset(name)\n"
+
+[node name="asset_manager_tests" type="Node"]
+
+script/script = SubResource( 1 )
+
+[node name="asset_name" type="LineEdit" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 23.0
+margin/top = 39.0
+margin/right = 552.0
+margin/bottom = 63.0
+placeholder/alpha = 0.6
+focus_mode = 2
+caret/caret_blink = false
+caret/caret_blink_speed = 0.65
+
+[node name="get_asset" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 24.0
+margin/top = 72.0
+margin/right = 126.0
+margin/bottom = 109.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Get Asset"
+flat = false
+
+[node name="sprite_goblin" type="Sprite" parent="."]
+
+transform/pos = Vector2( 113.439, 152.99 )
+vframes = 8
+hframes = 48
+
+[node name="sprite_minotaur" type="Sprite" parent="."]
+
+transform/pos = Vector2( 394.445, 193.716 )
+vframes = 8
+hframes = 24
+
+
