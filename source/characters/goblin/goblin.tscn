@@ -219,6 +219,8 @@ script/script = ExtResource( 1 )
 
 transform/pos = Vector2( 0.104668, -30.4405 )
 texture = ExtResource( 2 )
+vframes = 8
+hframes = 48
 
 [node name="anim" type="AnimationPlayer" parent="sprite"]
 
